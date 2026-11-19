@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amaljith S | Digital Marketing Executive</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .font-hero {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Interactive Blade Canvas Background */
+        #bladeCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Fade-in Animation */
+        .fade-in-up {
+            animation: fadeInUp 0.7s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Timeline Styling */
+        .timeline-border {
+            border-left: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            left: -0.32rem;
+            top: 0.4rem;
+            width: 0.62rem;
+            height: 0.62rem;
+            background-color: #121212;
+            border: 2px solid #00c8ff;
+            border-radius: 50%;
+        }
+
+        /* 80px Circular Icon Ring for Skills & Tools */
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 96px;
+            gap: 12px;
+            cursor: default;
+        }
+
+        .icon-ring {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .icon-item:hover .icon-ring {
+            border-color: #00c8ff;
+            background: rgba(0, 200, 255, 0.06);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 24px -10px rgba(0, 200, 255, 0.35);
+        }
+
+        .icon-ring i {
+            color: #00c8ff;
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .icon-item:hover .icon-ring i {
+            transform: scale(1.1);
+        }
+
+        .icon-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: #e2e8f0;
+            text-align: center;
+            line-height: 1.35;
+            transition: color 0.3s ease;
+        }
+
+        .icon-item:hover .icon-label {
+            color: #00c8ff;
+        }
+
+        /* Zoom Cursor for Inspectable Screenshots */
+        .zoomable-img {
+            cursor: zoom-in;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #121212; }
+        ::-webkit-scrollbar-thumb { background: #333333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #444444; }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#00c8ff] selection:text-black">
+
+    <!-- Interactive Knife-Cutting Blade Canvas -->
+    <canvas id="bladeCanvas"></canvas>
+
+    <!-- Fixed Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#121212]/85 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="font-hero text-xl font-extrabold tracking-tight text-white uppercase flex items-center gap-2">
+                    <span class="w-2 h-2 bg-[#00c8ff] rounded-full animate-pulse"></span>
+                    AMALJITH <span class="text-[#00c8ff]">S</span>
+                </a>
+                <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="#about" class="text-[#a0a0a0] hover:text-[#00c8ff] transition-colors text-xs font-bold uppercase tracking-widest">About</a>
+                    <a href="#work" class="text-[#a0a0a0] hover:text-[#00c8ff] transition-colors text-xs font-bold uppercase tracking-widest">Work</a>
+                    <a href="#experience" class="text-[#a0a0a0] hover:text-[#00c8ff] transition-colors text-xs font-bold uppercase tracking-widest">Experience</a>
+                    <a href="#skills" class="text-[#a0a0a0] hover:text-[#00c8ff] transition-colors text-xs font-bold uppercase tracking-widest">Skills</a>
+                    <a href="#tools" class="text-[#a0a0a0] hover:text-[#00c8ff] transition-colors text-xs font-bold uppercase tracking-widest">Tools</a>
+                    <a href="#faq" class="text-[#a0a0a0] hover:text-[#00c8ff] transition-colors text-xs font-bold uppercase tracking-widest">FAQ</a>
+                    <a href="#contact" class="text-[#a0a0a0] hover:text-[#00c8ff] transition-colors text-xs font-bold uppercase tracking-widest">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section class="pt-32 pb-20 md:pt-40 md:pb-24 px-6 lg:px-8 max-w-7xl mx-auto relative flex flex-col justify-center min-h-[85vh]">
+            <div class="w-full fade-in-up">
+                <h1 class="font-hero text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] font-black tracking-tighter uppercase mb-6 leading-[0.92]">
+                    <span class="text-white block">AMALJITH S</span>
+                    <span class="text-[#00c8ff] block">THE DIGITAL</span>
+                    <span class="text-[#00c8ff] block">MARKETER.</span>
+                </h1>
+
+                <p class="text-base md:text-lg lg:text-xl font-light text-[#a0a0a0] max-w-3xl mb-10 leading-relaxed">
+                    I’m Amaljith S, a digital marketer for Meta Ads, Google Ads, SEO, social media and AI video. I’ve worked with clients in India and the US, helping them grow their business.
+                </p>
+
+                <a href="mailto:amaljiths369@gmail.com" class="inline-flex items-center gap-3 bg-[#00c8ff] hover:bg-white text-black font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-lg transition-colors duration-300 mb-16">
+                    Start a Conversation <span aria-hidden="true">&rarr;</span>
+                </a>
+
+                <div class="border-t border-white/10 pt-6">
+                    <p class="text-[10px] md:text-xs text-[#a0a0a0] uppercase tracking-widest font-bold mb-3">Brands I've worked with</p>
+                    <div class="flex flex-wrap gap-4 md:gap-8 text-gray-300 font-medium text-sm md:text-base uppercase tracking-wider">
+                        <span>Aibi</span>
+                        <span>Himmath</span>
+                        <span>Kas Auto</span>
+                        <span>Techorbit</span>
+                        <span>Truesenese</span>
+                        <span>IVIDAM GROUP</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Stats Banner Section -->
+        <section id="stats-section" class="border-y border-white/10 bg-white/[0.03] backdrop-blur-sm fade-in-up relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-white/10">
+
+                    <div class="p-8 text-center flex flex-col justify-center items-center hover:bg-white/[0.03] transition-colors">
+                        <div class="font-hero text-3xl md:text-4xl font-extrabold text-[#00c8ff] mb-2">
+                            <span class="counter" data-target="1" data-suffix="cr+">0cr+</span>
+                        </div>
+                        <p class="text-[10px] sm:text-xs text-[#a0a0a0] uppercase tracking-widest font-medium">Business Generated</p>
+                    </div>
+
+                    <div class="p-8 text-center flex flex-col justify-center items-center hover:bg-white/[0.03] transition-colors">
+                        <div class="font-hero text-3xl md:text-4xl font-extrabold text-[#00c8ff] mb-2">
+                            <span class="counter" data-target="200" data-suffix="">0</span>
+                        </div>
+                        <p class="text-[10px] sm:text-xs text-[#a0a0a0] uppercase tracking-widest font-medium">CPR Achieved</p>
+                    </div>
+
+                    <div class="p-8 text-center flex flex-col justify-center items-center hover:bg-white/[0.03] transition-colors">
+                        <div class="font-hero text-3xl md:text-4xl font-extrabold text-[#00c8ff] mb-2">
+                            <span class="counter" data-target="90" data-suffix="+">0+</span>
+                        </div>
+                        <p class="text-[10px] sm:text-xs text-[#a0a0a0] uppercase tracking-widest font-medium">Google Ads Optimisation Score</p>
+                    </div>
+
+                    <div class="p-8 text-center flex flex-col justify-center items-center hover:bg-white/[0.03] transition-colors">
+                        <div class="font-hero text-3xl md:text-4xl font-extrabold text-[#00c8ff] mb-2">
+                            <span class="counter" data-target="30" data-suffix="">0</span>
+                        </div>
+                        <p class="text-[10px] sm:text-xs text-[#a0a0a0] uppercase tracking-widest font-medium">Monthly Leads in Google Ads</p>
+                    </div>
+
+                    <div class="p-8 text-center flex flex-col justify-center items-center col-span-2 md:col-span-1 border-t md:border-t-0 border-white/10 hover:bg-white/[0.03] transition-colors">
+                        <div class="font-hero text-3xl md:text-4xl font-extrabold text-[#00c8ff] mb-2">
+                            <span class="counter" data-target="130" data-suffix="">0</span>
+                        </div>
+                        <p class="text-[10px] sm:text-xs text-[#a0a0a0] uppercase tracking-widest font-medium">Monthly Leads in Meta Ads</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. What makes me different -->
+        <section id="about" class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="mb-16 fade-in-up">
+                <h2 class="font-hero text-sm font-bold tracking-widest uppercase text-[#00c8ff] mb-4">What makes me different</h2>
+                <p class="text-2xl md:text-3xl font-light text-white max-w-3xl leading-snug">
+                    Effective marketing needs more than good ads. It needs creative, search and budget discipline working together.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in-up">
+                <div class="p-6 bg-white/[0.03] border border-white/10 rounded-xl hover:border-[#00c8ff]/50 transition-colors">
+                    <span class="font-hero text-xs font-extrabold tracking-widest text-[#00c8ff] mb-4 block">01</span>
+                    <h3 class="text-lg font-bold text-white mb-2">One person, the full funnel</h3>
+                    <p class="text-sm text-[#a0a0a0] font-light leading-relaxed">I run Meta and Google Ads, write the scripts and create the AI videos, so the message stays consistent from ad to website.</p>
+                </div>
+                <div class="p-6 bg-white/[0.03] border border-white/10 rounded-xl hover:border-[#00c8ff]/50 transition-colors">
+                    <span class="font-hero text-xs font-extrabold tracking-widest text-[#00c8ff] mb-4 block">02</span>
+                    <h3 class="text-lg font-bold text-white mb-2">An accountant's eye for spend</h3>
+                    <p class="text-sm text-[#a0a0a0] font-light leading-relaxed">My finance background means every rupee of budget has to earn its place. I track cost per lead, not just clicks.</p>
+                </div>
+                <div class="p-6 bg-white/[0.03] border border-white/10 rounded-xl hover:border-[#00c8ff]/50 transition-colors">
+                    <span class="font-hero text-xs font-extrabold tracking-widest text-[#00c8ff] mb-4 block">03</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Built for quality leads</h3>
+                    <p class="text-sm text-[#a0a0a0] font-light leading-relaxed">I optimize for high-intent leads, not vanity numbers: 130 HNI leads at ₹324 CPL in a month, including one that fed a ₹50 lakh deal.</p>
+                </div>
+                <div class="p-6 bg-white/[0.03] border border-white/10 rounded-xl hover:border-[#00c8ff]/50 transition-colors">
+                    <span class="font-hero text-xs font-extrabold tracking-widest text-[#00c8ff] mb-4 block">04</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Strategy, not just execution</h3>
+                    <p class="text-sm text-[#a0a0a0] font-light leading-relaxed">I do the research before I spend: keyword mapping, competitor review and audience analysis, so campaigns start from evidence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Selected Work -->
+        <section id="work" class="py-24 px-6 lg:px-8 bg-white/[0.02] border-y border-white/10">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-14 fade-in-up">
+                    <h2 class="font-hero text-sm font-bold tracking-widest uppercase text-[#00c8ff]">Selected Work</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 fade-in-up">
+                    <!-- Card 1: Meta Ads -->
+                    <div class="group bg-white/[0.03] border border-white/10 rounded-xl overflow-hidden hover:border-[#00c8ff]/50 transition-all duration-300 flex flex-col">
+                        <div class="bg-[#0b0b0b] border-b border-white/10 p-3 sm:p-4 flex items-center justify-center min-h-[240px] sm:min-h-[280px] relative">
+                            <img
+                                src="Meta Result.jpg"
+                                alt="AIBI CAMPUS Meta Ads Result - 66 leads at ₹46.67 cost per lead"
+                                class="zoomable-img w-full h-auto max-h-[300px] object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.01]"
+                                data-caption="AIBI CAMPUS — Meta Ads: 66 leads at ₹46.67 cost per lead"
+                                onerror="this.onerror=null;this.src='https://placehold.co/960x540/181818/00c8ff?text=Meta+Result.jpg';"
+                            >
+                            <span class="pointer-events-none absolute bottom-3 right-3 bg-black/70 text-white/80 text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i class="ph ph-magnifying-glass-plus text-[#00c8ff]"></i>Zoom
+                            </span>
+                        </div>
+                        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-[#00c8ff] bg-[#00c8ff]/10 px-3 py-1 rounded-full mb-4 inline-block">META ADS</span>
+                                <p class="font-hero text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#00c8ff] mb-1.5">AIBI CAMPUS</p>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">66 leads at ₹46.67 cost per lead</h3>
+                                <p class="text-[#a0a0a0] font-light text-sm sm:text-base leading-relaxed">Planned, launched and managed a Meta Ads lead form campaign for an education brand, delivering 66 leads at a low cost per lead.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Google Ads -->
+                    <div class="group bg-white/[0.03] border border-white/10 rounded-xl overflow-hidden hover:border-[#00c8ff]/50 transition-all duration-300 flex flex-col">
+                        <div class="bg-[#0b0b0b] border-b border-white/10 p-3 sm:p-4 flex items-center justify-center min-h-[240px] sm:min-h-[280px] relative">
+                            <img
+                                src="G-Ads.jpg"
+                                alt="AIBI CAMPUS Google Ads Result - 10 conversions at a 4.91% CTR"
+                                class="zoomable-img w-full h-auto max-h-[300px] object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.01]"
+                                data-caption="AIBI CAMPUS — Google Ads: 10 conversions at a 4.91% CTR"
+                                onerror="this.onerror=null;this.src='https://placehold.co/960x540/181818/00c8ff?text=G-Ads.jpg';"
+                            >
+                            <span class="pointer-events-none absolute bottom-3 right-3 bg-black/70 text-white/80 text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i class="ph ph-magnifying-glass-plus text-[#00c8ff]"></i>Zoom
+                            </span>
+                        </div>
+                        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-[#00c8ff] bg-[#00c8ff]/10 px-3 py-1 rounded-full mb-4 inline-block">GOOGLE ADS</span>
+                                <p class="font-hero text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#00c8ff] mb-1.5">AIBI CAMPUS</p>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">10 conversions at a 4.91% CTR</h3>
+                                <p class="text-[#a0a0a0] font-light text-sm sm:text-base leading-relaxed">Set up and optimized a Google Ads Performance Max campaign for an education brand, driving 90 clicks and 10 conversions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: SEO -->
+                    <div class="group bg-white/[0.03] border border-white/10 rounded-xl overflow-hidden hover:border-[#00c8ff]/50 transition-all duration-300 flex flex-col">
+                        <div class="bg-[#0b0b0b] border-b border-white/10 p-3 sm:p-4 flex items-center justify-center min-h-[240px] sm:min-h-[280px] relative">
+                            <img
+                                src="SEO Result.jpg"
+                                alt="HIMMATH GOLD SEO Result - 1.51K clicks from 150K impressions in 3 months"
+                                class="zoomable-img w-full h-auto max-h-[300px] object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.01]"
+                                data-caption="HIMMATH GOLD — SEO: 1.51K clicks from 150K impressions in 3 months"
+                                onerror="this.onerror=null;this.src='https://placehold.co/960x540/181818/00c8ff?text=SEO+Result.jpg';"
+                            >
+                            <span class="pointer-events-none absolute bottom-3 right-3 bg-black/70 text-white/80 text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i class="ph ph-magnifying-glass-plus text-[#00c8ff]"></i>Zoom
+                            </span>
+                        </div>
+                        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-[#00c8ff] bg-[#00c8ff]/10 px-3 py-1 rounded-full mb-4 inline-block">SEO</span>
+                                <p class="font-hero text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#00c8ff] mb-1.5">HIMMATH GOLD</p>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">1.51K clicks from 150K impressions in 3 months</h3>
+                                <p class="text-[#a0a0a0] font-light text-sm sm:text-base leading-relaxed">Handled organic search for a gold bullion dealer, earning 1.51K clicks from 150K impressions in 3 months.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Social Media -->
+                    <div class="group bg-white/[0.03] border border-white/10 rounded-xl overflow-hidden hover:border-[#00c8ff]/50 transition-all duration-300 flex flex-col">
+                        <div class="bg-[#0b0b0b] border-b border-white/10 p-3 sm:p-4 flex items-center justify-center min-h-[240px] sm:min-h-[280px] relative">
+                            <div class="grid grid-cols-2 gap-3 w-full max-w-[360px] mx-auto">
+                                <div class="bg-[#121212] rounded-lg overflow-hidden border border-white/10 flex items-center justify-center p-1">
+                                    <img
+                                        src="SM-1.png"
+                                        alt="AIBI CAMPUS Instagram Followers Growth - 13,417 followers, +2,141 overall"
+                                        class="zoomable-img w-full h-auto max-h-[280px] object-contain rounded transition-transform duration-300 hover:scale-[1.02]"
+                                        data-caption="AIBI CAMPUS — Social Media: 13,417 Followers (+2,141 growth in a month)"
+                                        onerror="this.onerror=null;this.src='https://placehold.co/320x640/181818/00c8ff?text=SM-1.png';"
+                                    >
+                                </div>
+                                <div class="bg-[#121212] rounded-lg overflow-hidden border border-white/10 flex items-center justify-center p-1">
+                                    <img
+                                        src="SM-2.png"
+                                        alt="AIBI CAMPUS Instagram Interactions - 16,985 likes and top reels"
+                                        class="zoomable-img w-full h-auto max-h-[280px] object-contain rounded transition-transform duration-300 hover:scale-[1.02]"
+                                        data-caption="AIBI CAMPUS — Social Media: 16,985 Reel Likes & Top Reels Interactions"
+                                        onerror="this.onerror=null;this.src='https://placehold.co/320x640/181818/00c8ff?text=SM-2.png';"
+                                    >
+                                </div>
+                            </div>
+                            <span class="pointer-events-none absolute bottom-3 right-3 bg-black/70 text-white/80 text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i class="ph ph-magnifying-glass-plus text-[#00c8ff]"></i>Zoom
+                            </span>
+                        </div>
+                        <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-[#00c8ff] bg-[#00c8ff]/10 px-3 py-1 rounded-full mb-4 inline-block">SOCIAL MEDIA</span>
+                                <p class="font-hero text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#00c8ff] mb-1.5">AIBI CAMPUS</p>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">+2,141 followers in a month</h3>
+                                <p class="text-[#a0a0a0] font-light text-sm sm:text-base leading-relaxed">Managed Instagram content for an education brand, growing the account to 13.4K followers with 16,985 reel likes in a month.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Confidentiality & NDA Note (Pure White) -->
+                <p class="mt-10 text-sm text-[#ffffff] text-center font-normal">
+                    To respect client confidentiality and NDAs, I’ve limited this page to work I’m cleared to share.
+                </p>
+            </div>
+        </section>
+
+        <!-- 5. Blog -->
+        <section id="blog" class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="mb-12 fade-in-up">
+                <h2 class="font-hero text-sm font-bold tracking-widest uppercase text-[#00c8ff] mb-4">Blog</h2>
+                <p class="text-3xl font-light text-white leading-snug">Featured Article</p>
+            </div>
+            <div class="group bg-white/[0.03] border border-white/10 rounded-xl overflow-hidden hover:border-[#00c8ff]/50 transition-colors fade-in-up grid grid-cols-1 lg:grid-cols-12">
+                <div class="lg:col-span-7 bg-[#0b0b0b] border-b lg:border-b-0 lg:border-r border-white/10 p-4 flex items-center justify-center relative">
+                    <img
+                        src="Blog.png"
+                        alt="Medium Blog - Why digital marketing is trending"
+                        class="zoomable-img w-full h-auto max-h-[340px] object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.01]"
+                        data-caption="Medium Blog — Why digital marketing is trending"
+                        onerror="this.onerror=null;this.src='https://placehold.co/960x480/181818/00c8ff?text=Blog.png';"
+                    >
+                    <span class="pointer-events-none absolute bottom-3 right-3 bg-black/70 text-white/80 text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                        <i class="ph ph-magnifying-glass-plus text-[#00c8ff]"></i>Zoom
+                    </span>
+                </div>
+                <div class="lg:col-span-5 p-8 md:p-10 flex flex-col justify-center">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-[#00c8ff] bg-[#00c8ff]/10 px-3 py-1 rounded-full mb-4 inline-block w-fit">Medium</span>
+                    <h3 class="text-2xl font-bold text-white mb-3">Why digital marketing is trending</h3>
+                    <p class="text-[#a0a0a0] font-light mb-8 leading-relaxed">Wrote a blog on the topic “Why digital marketing is trending” in Medium.</p>
+                    <a href="https://medium.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white hover:text-[#00c8ff] transition-colors w-fit">
+                        Read on Medium <i class="ph ph-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Creatives -->
+        <section id="creatives" class="py-24 px-6 lg:px-8 bg-white/[0.02] border-y border-white/10">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16 fade-in-up">
+                    <h2 class="font-hero text-sm font-bold tracking-widest uppercase text-[#00c8ff] mb-4">Creatives</h2>
+                    <p class="text-3xl font-light text-white leading-snug">Visual concepts & ad creatives</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 fade-in-up">
+                    <div class="group bg-white/[0.03] border border-white/10 rounded-xl overflow-hidden hover:border-[#00c8ff]/50 transition-colors p-3 sm:p-4 flex flex-col">
+                        <div class="bg-[#0b0b0b] rounded-lg overflow-hidden flex items-center justify-center relative">
+                            <img
+                                src="Creative-1.jpg"
+                                alt="AIBI Unlock Your Future in AI & Data Analysis"
+                                class="zoomable-img w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+                                data-caption="AIBI — Unlock Your Future in AI & Data Analysis"
+                                onerror="this.onerror=null;this.src='https://placehold.co/960x540/181818/00c8ff?text=Creative-1.jpg';"
+                            >
+                            <span class="pointer-events-none absolute bottom-3 right-3 bg-black/70 text-white/80 text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i class="ph ph-magnifying-glass-plus text-[#00c8ff]"></i>Zoom
+                            </span>
+                        </div>
+                        <p class="text-xs text-[#a0a0a0] uppercase tracking-widest font-medium mt-4 px-1">AIBI — AI & Data Analysis Campaign</p>
+                    </div>
+
+                    <div class="group bg-white/[0.03] border border-white/10 rounded-xl overflow-hidden hover:border-[#00c8ff]/50 transition-colors p-3 sm:p-4 flex flex-col">
+                        <div class="bg-[#0b0b0b] rounded-lg overflow-hidden flex items-center justify-center relative">
+                            <img
+                                src="Creative-2.jpg"
+                                alt="AIBI Digital Marketing Creative"
+                                class="zoomable-img w-full h-auto object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+                                data-caption="AIBI — Digital Marketing Campaign Creative"
+                                onerror="this.onerror=null;this.src='https://placehold.co/960x540/181818/00c8ff?text=Creative-2.jpg';"
+                            >
+                            <span class="pointer-events-none absolute bottom-3 right-3 bg-black/70 text-white/80 text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                                <i class="ph ph-magnifying-glass-plus text-[#00c8ff]"></i>Zoom
+                            </span>
+                        </div>
+                        <p class="text-xs text-[#a0a0a0] uppercase tracking-widest font-medium mt-4 px-1">AIBI — Digital Marketing Campaign</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Experience & Education -->
+        <section id="experience" class="py-24 px-6 lg:px-8 max-w-4xl mx-auto">
+            <div class="mb-16 fade-in-up">
+                <h2 class="font-hero text-sm font-bold tracking-widest uppercase text-[#00c8ff] mb-4">The Journey</h2>
+                <p class="text-3xl font-light text-white leading-snug">Experience & Education</p>
+            </div>
+
+            <div class="timeline-border relative pl-8 md:pl-12 space-y-14">
+                <!-- Experience -->
+                <div class="relative timeline-dot fade-in-up">
+                    <div class="mb-2">
+                        <span class="text-xs font-bold tracking-widest text-[#00c8ff] uppercase bg-[#00c8ff]/10 px-3 py-1 rounded-md">May 2026 - Nov 2026</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-1 mt-3">Junior Digital Marketer</h3>
+                    <h4 class="text-base font-light text-[#a0a0a0] mb-4">Golden Qube, Kochi</h4>
+                    <ul class="space-y-2 text-sm text-gray-300 font-light list-disc pl-5 leading-relaxed">
+                        <li>Acquired a Meta Ads lead for ₹200 that contributed to a ₹50 lakh client deal, and 130 HNI leads at ₹324 CPL in a month.</li>
+                        <li>Managed Google Ads campaigns, maintaining a 90+ optimization score.</li>
+                        <li>Managed Google Business Profile (GMB) listings to strengthen local search visibility and presence.</li>
+                        <li>Coordinated cross-functional work across design, development, and content teams, guiding the website developer on structure, content, and SEO requirements.</li>
+                        <li>Wrote ad scripts, directed videos, and created AI videos using refined prompts for client campaigns.</li>
+                        <li>Delivered content research and SEO studies for a US client's strategy.</li>
+                    </ul>
+                </div>
+
+                <div class="relative timeline-dot fade-in-up">
+                    <div class="mb-2">
+                        <span class="text-xs font-bold tracking-widest text-[#a0a0a0] uppercase border border-white/15 px-3 py-1 rounded-md">Aug 2025 - Feb 2026</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-1 mt-3">Digital Marketing Intern</h3>
+                    <h4 class="text-base font-light text-[#a0a0a0] mb-4">ANAD Digital Marketing Agency, Dubai</h4>
+                    <ul class="space-y-2 text-sm text-gray-300 font-light list-disc pl-5 leading-relaxed">
+                        <li>Planned and optimized Google Ads campaigns (Search, Display, Performance Max), generating 30+ monthly leads while reducing CPC by around 15% through continuous campaign optimization.</li>
+                        <li>Executed SEO and Meta Ads strategies, increasing organic traffic by 20–30% and social engagement by 30%.</li>
+                    </ul>
+                </div>
+
+                <div class="relative timeline-dot fade-in-up">
+                    <div class="mb-2">
+                        <span class="text-xs font-bold tracking-widest text-[#a0a0a0] uppercase border border-white/15 px-3 py-1 rounded-md">Aug 2024 - Aug 2025</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-1 mt-3">Accountant Cum Admin</h3>
+                    <h4 class="text-base font-light text-[#a0a0a0] mb-4">Myson Group of Companies (Krishna Industries), Kochi</h4>
+                    <ul class="space-y-2 text-sm text-gray-300 font-light list-disc pl-5 leading-relaxed">
+                        <li>Managed customer quotations and product estimation processes.</li>
+                        <li>Processed sales orders and job work orders using Tally ERP.</li>
+                    </ul>
+                </div>
+
+                <div class="relative timeline-dot fade-in-up">
+                    <div class="mb-2">
+                        <span class="text-xs font-bold tracking-widest text-[#a0a0a0] uppercase border border-white/15 px-3 py-1 rounded-md">Sep 2022 - Sep 2023</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-1 mt-3">Cost Accountant Trainee</h3>
+                    <h4 class="text-base font-light text-[#a0a0a0] mb-4">Travancore Cochin Chemicals Ltd, Kochi</h4>
+                    <ul class="space-y-2 text-sm text-gray-300 font-light list-disc pl-5 leading-relaxed">
+                        <li>Prepared MIS reports, cost analysis reports, and stock statements.</li>
+                        <li>Supported annual budgeting and financial closing activities.</li>
+                    </ul>
+                </div>
+
+                <!-- Education Separator -->
+                <div class="pt-6 pb-2 relative timeline-dot fade-in-up">
+                    <h3 class="font-hero text-lg font-bold text-[#00c8ff] uppercase tracking-widest">Education & Certifications</h3>
+                </div>
+
+                <div class="relative timeline-dot fade-in-up">
+                    <div class="mb-2">
+                        <span class="text-xs font-bold tracking-widest text-[#a0a0a0] uppercase border border-white/15 px-3 py-1 rounded-md">Certification</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1 mt-3">CBPD — International Diploma in AI-Integrated Digital Marketing Management</h3>
+                </div>
+
+                <div class="relative timeline-dot fade-in-up">
+                    <div class="mb-2">
+                        <span class="text-xs font-bold tracking-widest text-[#a0a0a0] uppercase border border-white/15 px-3 py-1 rounded-md">2021 - 2023</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1 mt-3">Master of Commerce (M.Com)</h3>
+                    <h4 class="text-base font-light text-[#a0a0a0]">International Business Operations, IGNOU</h4>
+                </div>
+
+                <div class="relative timeline-dot fade-in-up">
+                    <div class="mb-2">
+                        <span class="text-xs font-bold tracking-widest text-[#a0a0a0] uppercase border border-white/15 px-3 py-1 rounded-md">2017 - 2020</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1 mt-3">Bachelor of Commerce (B.Com)</h3>
+                    <h4 class="text-base font-light text-[#a0a0a0]">Computer Application, SNGIST, Ernakulam</h4>
+                </div>
+
+                <div class="relative timeline-dot fade-in-up">
+                    <div class="mb-2">
+                        <span class="text-xs font-bold tracking-widest text-[#a0a0a0] uppercase border border-white/15 px-3 py-1 rounded-md">2015 - 2017</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1 mt-3">Higher Secondary Education</h3>
+                    <h4 class="text-base font-light text-[#a0a0a0]">Commerce, GHSS Muppathadom, Ernakulam</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Skills Section (Dedicated) -->
+        <section id="skills" class="py-24 px-6 lg:px-8 bg-white/[0.02] border-t border-white/10 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16 fade-in-up text-center">
+                    <h2 class="font-hero text-sm font-bold tracking-widest uppercase text-[#00c8ff] mb-4">Core Expertise</h2>
+                    <p class="text-3xl font-light text-white leading-snug">Skills</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-10 fade-in-up max-w-5xl mx-auto">
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-meta-logo"></i></div>
+                        <span class="icon-label">Meta Ads</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-google-logo"></i></div>
+                        <span class="icon-label">Google Ads</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-magnifying-glass"></i></div>
+                        <span class="icon-label">SEO</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-share-network"></i></div>
+                        <span class="icon-label">Social Media</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-robot"></i></div>
+                        <span class="icon-label">AI Video</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-pen-nib"></i></div>
+                        <span class="icon-label">Content Strategy</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-file-text"></i></div>
+                        <span class="icon-label">Script Writing</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-terminal-window"></i></div>
+                        <span class="icon-label">Prompt Creation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Tools Section (Dedicated) -->
+        <section id="tools" class="py-24 px-6 lg:px-8 border-y border-white/10 relative z-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16 fade-in-up text-center">
+                    <h2 class="font-hero text-sm font-bold tracking-widest uppercase text-[#00c8ff] mb-4">Stack</h2>
+                    <p class="text-3xl font-light text-white leading-snug">Tools</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-10 fade-in-up max-w-5xl mx-auto">
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-chart-line-up"></i></div>
+                        <span class="icon-label">GA4</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-globe"></i></div>
+                        <span class="icon-label">Search Console</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-storefront"></i></div>
+                        <span class="icon-label">Google Business Profile</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-detective"></i></div>
+                        <span class="icon-label">Semrush & Ahrefs</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-megaphone"></i></div>
+                        <span class="icon-label">Meta Ads Manager</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-sparkle"></i></div>
+                        <span class="icon-label">AI Video Tools</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-paint-brush"></i></div>
+                        <span class="icon-label">Canva</span>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-ring"><i class="ph ph-table"></i></div>
+                        <span class="icon-label">Sheets & Excel</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. FAQ Section -->
+        <section id="faq" class="py-24 px-6 lg:px-8 max-w-3xl mx-auto">
+            <div class="mb-12 fade-in-up text-center">
+                <h2 class="font-hero text-sm font-bold tracking-widest uppercase text-[#00c8ff] mb-4">FAQ</h2>
+                <p class="text-3xl font-light text-white leading-snug">Frequently Asked Questions</p>
+            </div>
+
+            <div class="space-y-4 fade-in-up">
+                <details class="group bg-white/[0.03] border border-white/10 rounded-xl p-6 cursor-pointer hover:border-[#00c8ff]/30 transition-colors [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex justify-between items-center font-medium list-none text-lg text-white">
+                        <span>Are you open to full-time roles?</span>
+                        <span class="transition-transform duration-200 group-open:rotate-180 text-[#00c8ff]">
+                            <i class="ph ph-caret-down text-lg"></i>
+                        </span>
+                    </summary>
+                    <div class="text-[#a0a0a0] font-light mt-4 text-sm leading-relaxed border-t border-white/10 pt-4">
+                        Yes, I’m open to full-time digital marketing roles.
+                    </div>
+                </details>
+
+                <details class="group bg-white/[0.03] border border-white/10 rounded-xl p-6 cursor-pointer hover:border-[#00c8ff]/30 transition-colors [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex justify-between items-center font-medium list-none text-lg text-white">
+                        <span>Which channels do you cover?</span>
+                        <span class="transition-transform duration-200 group-open:rotate-180 text-[#00c8ff]">
+                            <i class="ph ph-caret-down text-lg"></i>
+                        </span>
+                    </summary>
+                    <div class="text-[#a0a0a0] font-light mt-4 text-sm leading-relaxed border-t border-white/10 pt-4">
+                        Meta Ads, Google Ads, SEO and social media, plus video: ad scripts and AI-generated videos. I also manage Google Business Profile for local search.
+                    </div>
+                </details>
+
+                <details class="group bg-white/[0.03] border border-white/10 rounded-xl p-6 cursor-pointer hover:border-[#00c8ff]/30 transition-colors [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex justify-between items-center font-medium list-none text-lg text-white">
+                        <span>Which industries have you worked in?</span>
+                        <span class="transition-transform duration-200 group-open:rotate-180 text-[#00c8ff]">
+                            <i class="ph ph-caret-down text-lg"></i>
+                        </span>
+                    </summary>
+                    <div class="text-[#a0a0a0] font-light mt-4 text-sm leading-relaxed border-t border-white/10 pt-4">
+                        I have worked across education, commercial interior and architecture design, gold bullion, real estate, automotive, technology, B2B services and F&amp;B, for brands in India, the UAE, and the US.
+                    </div>
+                </details>
+
+                <details class="group bg-white/[0.03] border border-white/10 rounded-xl p-6 cursor-pointer hover:border-[#00c8ff]/30 transition-colors [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex justify-between items-center font-medium list-none text-lg text-white">
+                        <span>Do you make the content yourself?</span>
+                        <span class="transition-transform duration-200 group-open:rotate-180 text-[#00c8ff]">
+                            <i class="ph ph-caret-down text-lg"></i>
+                        </span>
+                    </summary>
+                    <div class="text-[#a0a0a0] font-light mt-4 text-sm leading-relaxed border-t border-white/10 pt-4">
+                        Yes, for the written and video side. I write ad copy and scripts, direct videos and create AI videos through prompt refinement. For design-heavy work I brief designers and developers directly.
+                    </div>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <!-- 11. Full-Width Centered Footer (Direct Child of Body) -->
+    <footer id="contact" class="w-full bg-[#0a0a0a] pt-16 pb-10 border-t border-white/10 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center">
+            <p class="font-hero text-xl font-extrabold uppercase tracking-wider text-white mb-2">
+                AMALJITH <span class="text-[#00c8ff]">S</span>
+            </p>
+            <p class="text-xs uppercase tracking-[0.2em] text-[#00c8ff] font-medium mb-8">
+                Digital Marketing &middot; Performance &middot; Creativity
+            </p>
+
+            <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-8 mb-10">
+                <a href="mailto:amaljiths369@gmail.com" class="inline-flex items-center gap-2 text-sm sm:text-base font-medium text-white hover:text-[#00c8ff] transition-colors">
+                    <i class="ph ph-envelope-simple text-xl text-[#00c8ff]"></i>
+                    <span>amaljiths369@gmail.com</span>
+                </a>
+                <a href="tel:+918606560717" class="inline-flex items-center gap-2 text-sm sm:text-base font-medium text-white hover:text-[#00c8ff] transition-colors">
+                    <i class="ph ph-phone text-xl text-[#00c8ff]"></i>
+                    <span>+91 86065 60717</span>
+                </a>
+                <a href="https://www.linkedin.com/in/amaljith-s" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm sm:text-base font-medium text-white hover:text-[#00c8ff] transition-colors">
+                    <i class="ph ph-linkedin-logo text-xl text-[#00c8ff]"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+
+            <p class="text-gray-500 text-[10px] tracking-widest uppercase font-bold">
+                &copy; 2026 Amaljith S. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal for Full-Size Screenshot Inspection -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-8" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button id="lightbox-close" type="button" aria-label="Close preview" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-[#00c8ff] text-white hover:text-black flex items-center justify-center transition-colors border border-white/15">
+            <i class="ph ph-x text-xl"></i>
+        </button>
+        <div class="max-w-6xl w-full flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="Full size preview" class="max-w-[92vw] max-h-[82vh] w-auto h-auto object-contain rounded-xl border border-white/15 shadow-2xl">
+            <p id="lightbox-caption" class="mt-4 text-xs sm:text-sm text-gray-300 tracking-wide text-center"></p>
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // 1. Interactive Knife-Cutting Blade Canvas Effect
+        const canvas = document.getElementById('bladeCanvas');
+        const ctx = canvas.getContext('2d');
+        const points = [];
+        const maxAge = 24;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function addPoint(x, y) {
+            points.push({ x, y, age: 0 });
+        }
+
+        window.addEventListener('mousemove', (e) => addPoint(e.clientX, e.clientY));
+        window.addEventListener('touchmove', (e) => {
+            if (e.touches && e.touches[0]) {
+                addPoint(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: true });
+
+        function animateBlade() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (points.length > 1) {
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+
+                for (let i = 1; i < points.length; i++) {
+                    const p1 = points[i - 1];
+                    const p2 = points[i];
+                    p1.age += 1;
+
+                    if (p1.age > maxAge) {
+                        points.splice(i - 1, 1);
+                        i--;
+                        continue;
+                    }
+
+                    const lifeRatio = 1 - (p1.age / maxAge);
+                    const opacity = Math.max(0, lifeRatio);
+
+                    ctx.beginPath();
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.strokeStyle = `rgba(0, 200, 255, ${opacity})`;
+                    ctx.lineWidth = lifeRatio * 4;
+                    ctx.shadowBlur = 14 * lifeRatio;
+                    ctx.shadowColor = `rgba(0, 200, 255, ${opacity})`;
+                    ctx.stroke();
+                }
+
+                if (points.length > 0) {
+                    points[points.length - 1].age += 1;
+                }
+            } else if (points.length === 1) {
+                points[0].age += 1;
+                if (points[0].age > maxAge) points.shift();
+            }
+
+            requestAnimationFrame(animateBlade);
+        }
+        animateBlade();
+
+        // 2. Intersection Observer for Fade-In Animations
+        const fadeObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => {
+            el.style.animationPlayState = 'paused';
+            fadeObserver.observe(el);
+        });
+
+        // 3. Animated Stats Counters (ends cleanly on exact target + suffix, e.g. "1cr+")
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach((counter) => {
+                        const target = Number(counter.getAttribute('data-target')) || 0;
+                        const suffix = counter.getAttribute('data-suffix') || '';
+                        let current = 0;
+                        const step = Math.max(1, Math.ceil(target / 35));
+
+                        const tick = () => {
+                            current += step;
+                            if (current < target) {
+                                counter.textContent = `${current}${suffix}`;
+                                requestAnimationFrame(tick);
+                            } else {
+                                counter.textContent = `${target}${suffix}`;
+                            }
+                        };
+                        tick();
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        const statsSection = document.getElementById('stats-section');
+        if (statsSection) {
+            counterObserver.observe(statsSection);
+        }
+
+        // 4. Click-to-Zoom Lightbox Modal
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        function openLightbox(src, alt, caption) {
+            lightboxImg.src = src;
+            lightboxImg.alt = alt || 'Preview';
+            lightboxCaption.textContent = caption || alt || '';
+            lightboxModal.classList.remove('hidden');
+            lightboxModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.add('hidden');
+            lightboxModal.classList.remove('flex');
+            lightboxImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.zoomable-img').forEach((img) => {
+            img.addEventListener('click', () => {
+                openLightbox(img.src, img.alt, img.getAttribute('data-caption'));
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) closeLightbox();
+        });
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightboxModal.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
